@@ -32,7 +32,7 @@ public class LoginSteps {
 
 	@Description("Prueba para verificar el login del usuario")
 	@Severity(SeverityLevel.CRITICAL)
-	@Step("El usuario navega a la página de login")
+	@Step("El usuario navega a la pï¿½gina de login")
 	@Given("el usuario esta en la pagina de login")
 	public void userOnLoginPage() {
 		System.out.println("User navigates to the login page");
@@ -50,7 +50,7 @@ public class LoginSteps {
 
 	@Description("Prueba para verificar el login del usuario")
 	@Severity(SeverityLevel.CRITICAL)
-	@Step("El usuario ingresa credenciales válidas")
+	@Step("El usuario ingresa credenciales vï¿½lidas")
 	@When("el usuario ingresa credenciales validas")
 	public void userEntersCredentials() {
 		Allure.step("Paso 2: Ingresar credenciales");
@@ -72,34 +72,6 @@ public class LoginSteps {
 		System.out.println("User sees the dashboard");
 		mainPage.get_obj_wrapper();
 		Assert.assertTrue(mainPage.get_obj_wrapper().isDisplayed(), "El elemento no es visible.");
-		driver.quit();
 	}
 
-	@Description("Prueba para verificar el login del usuario")
-	@Severity(SeverityLevel.CRITICAL)
-	@Step("el usuario deberia ver un error")
-	@Then("el usuario deberia ver un error")
-	public void error() {
-		Allure.step("Paso 3: Verificar que el dashboard sea visible");
-		System.out.println("Error");
-		test = ExtentReportManager.getExtentInstance().createTest("Prueba con ExtentReports");
-		mainPage.get_obj_wrapper();
-		try {
-			Assert.assertTrue(!mainPage.get_obj_wrapper().isDisplayed(), "El elemento no es visible.");
-		} catch (AssertionError e) {
-			test.fail("Error: " + e.getMessage());
-		}
-		test.pass("Ejecucion finalizada de error.");
-		driver.quit();
-	}
-
-	@Description("Prueba para verificar el skip de un test")
-	@Severity(SeverityLevel.CRITICAL)
-	@Step("el test se skipea")
-	@Given("el test se skipea")
-	public void skip() {
-		Allure.step("Paso 1: skipear el caso");
-		System.out.println("User sees the dashboard");
-		throw new SkipException("Skipping TC");
-	}
 }
