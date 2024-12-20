@@ -2,9 +2,9 @@
 Feature: Promociones a comercios  
 
 	Background:   
-		Given el usuario esta en la pagina de login   
-		When el usuario ingresa credenciales validas  
-		Then el usuario deberia ver el dashboard 
+    Given el usuario esta en la pagina de login
+    When el usuario ingresa credenciales validas
+    Then el usuario deberia ver pantalla de inicio de GO
 
   Scenario: Alta de promocion
     Given el usuario ingresa a pantalla de promociones

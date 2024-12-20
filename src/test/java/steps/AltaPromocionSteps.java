@@ -52,7 +52,7 @@ public class AltaPromocionSteps {
 		//Ingresar a panel hasta llegar a pantalla de promociones
 		driver.findElement(By.linkText("Adquirencia")).click();
 		driver.findElement(By.linkText("Comercios")).click();
-		driver.findElement(By.linkText("Parametría")).click();
+		driver.findElement(By.cssSelector("li:nth-child(2) > .menu-link3")).click();
 		driver.findElement(By.linkText("Promociones a Comercios")).click();
 		//ingresar nueva promocion
 		driver.findElement(By.name("btnNew")).click();

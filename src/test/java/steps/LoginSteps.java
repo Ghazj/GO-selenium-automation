@@ -32,10 +32,10 @@ public class LoginSteps {
 
 	@Description("Prueba para verificar el login del usuario")
 	@Severity(SeverityLevel.CRITICAL)
-	@Step("El usuario navega a la p�gina de login")
+	@Step("El usuario navega a la pagina de login")
 	@Given("el usuario esta en la pagina de login")
 	public void userOnLoginPage() {
-		System.out.println("User navigates to the login page");
+		System.out.println("El usuario navega a la pagina de login");
 		Allure.step("Paso 1: Navegar al login");
 
 		this.driver = Hooks.getDriver();
@@ -50,12 +50,12 @@ public class LoginSteps {
 
 	@Description("Prueba para verificar el login del usuario")
 	@Severity(SeverityLevel.CRITICAL)
-	@Step("El usuario ingresa credenciales v�lidas")
+	@Step("El usuario ingresa credenciales validas")
 	@When("el usuario ingresa credenciales validas")
 	public void userEntersCredentials() {
 		Allure.step("Paso 2: Ingresar credenciales");
 
-		System.out.println("User enters valid credentials");
+		System.out.println("El usuario ingresa credenciales validas");
 		loginPage.inputUsername("admin700");
 		loginPage.inputPassword("GlobalProc");
 		loginPage.btnLogin();
@@ -64,12 +64,12 @@ public class LoginSteps {
 
 	@Description("Prueba para verificar el login del usuario")
 	@Severity(SeverityLevel.CRITICAL)
-	@Step("el usuario deberia ver el dashboard")
-	@Then("el usuario deberia ver el dashboard")
-	public void userSeesDashboard() {
-		Allure.step("Paso 3: Verificar que el dashboard sea visible");
+	@Step("el usuario deberia ver pantalla de inicio de GO")
+	@Then("el usuario deberia ver pantalla de inicio de GO")
+	public void userSeesHomeScreen() {
+		Allure.step("Paso 3: el usuario deberia ver pantalla de inicio de GO");
 
-		System.out.println("User sees the dashboard");
+		System.out.println("el usuario deberia ver pantalla de inicio de GO");
 		mainPage.get_obj_wrapper();
 		Assert.assertTrue(mainPage.get_obj_wrapper().isDisplayed(), "El elemento no es visible.");
 	}
