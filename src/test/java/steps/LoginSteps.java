@@ -33,7 +33,7 @@ public class LoginSteps {
 	@Description("Prueba para verificar el login del usuario")
 	@Severity(SeverityLevel.CRITICAL)
 	@Step("El usuario navega a la pagina de login")
-	@Given("el usuario esta en la pagina de login")
+	@Given("El usuario esta en la pagina de login")
 	public void userOnLoginPage() {
 		System.out.println("El usuario navega a la pagina de login");
 		Allure.step("Paso 1: Navegar al login");
@@ -51,7 +51,7 @@ public class LoginSteps {
 	@Description("Prueba para verificar el login del usuario")
 	@Severity(SeverityLevel.CRITICAL)
 	@Step("El usuario ingresa credenciales validas")
-	@When("el usuario ingresa credenciales validas")
+	@When("El usuario ingresa credenciales validas")
 	public void userEntersCredentials() {
 		Allure.step("Paso 2: Ingresar credenciales");
 
@@ -64,12 +64,12 @@ public class LoginSteps {
 
 	@Description("Prueba para verificar el login del usuario")
 	@Severity(SeverityLevel.CRITICAL)
-	@Step("el usuario deberia ver pantalla de inicio de GO")
-	@Then("el usuario deberia ver pantalla de inicio de GO")
+	@Step("El usuario deberia ver pantalla de inicio de GO")
+	@Then("El usuario deberia ver pantalla de inicio de GO")
 	public void userSeesHomeScreen() {
-		Allure.step("Paso 3: el usuario deberia ver pantalla de inicio de GO");
+		Allure.step("Paso 3: El usuario deberia ver pantalla de inicio de GO");
 
-		System.out.println("el usuario deberia ver pantalla de inicio de GO");
+		System.out.println("El usuario deberia ver pantalla de inicio de GO");
 		mainPage.get_obj_wrapper();
 		Assert.assertTrue(mainPage.get_obj_wrapper().isDisplayed(), "El elemento no es visible.");
 	}
