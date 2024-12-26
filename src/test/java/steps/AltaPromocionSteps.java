@@ -6,6 +6,8 @@ import java.time.format.DateTimeFormatter;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -16,6 +18,8 @@ import org.testng.Assert;
 import hooks.Hooks;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
+import io.cucumber.java.Before;
+import io.cucumber.java.Scenario;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.messages.types.Duration;
@@ -30,13 +34,19 @@ import pages.MainPage;
 
 @SuppressWarnings("unused")
 public class AltaPromocionSteps {
+	Scenario scenario;
 	WebDriver driver;
 	WebDriverWait wait;
 	CertificateSSL ssl;
 	Login loginPage;
 	MainPage mainPage;
 	JavascriptExecutor js;
-
+	
+	@Before
+    public void setUp(Scenario scenario) {
+        this.scenario = scenario;
+    }
+	
 	@Description("Prueba para verificar el alta de promociones")
 	@Severity(SeverityLevel.CRITICAL)
 
@@ -118,6 +128,10 @@ public class AltaPromocionSteps {
 		driver.findElement(By.cssSelector(".checkbox:nth-child(6) > label")).click();
 		driver.findElement(By.cssSelector(".checkbox:nth-child(7) > label")).click();	
 		driver.findElement(By.cssSelector("button.goToStep")).click(); 
+		
+		// Capturar y adjuntar un screenshot del paso
+	    byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+	    this.scenario.attach(screenshot, "image/png", "Screenshot after clicking element");
 		
 		}
 		
