@@ -33,12 +33,22 @@ public class Hooks {
 
     @After
     public void tearDown() {
+    	if (scenario.isFailed()) {
+            String screenshotName = scenario.getName().replaceAll(" ", "_");
+            String screenshotPath = Screenshot.takeScreenshot(driver, screenshotName);
+            
+            byte[] screenshotBytes = Screenshot.getScreenshotAsBytes(screenshotPath);
+            
+            if (screenshotBytes != null) {
+                scenario.attach(screenshotBytes, "image/png", screenshotName);
+            }
+        }
         if (driver != null) {
             driver.quit();
         }
     }
     
-    @AfterStep
+    //@AfterStep
     public void takeScreenshotOnFinishStep(Scenario scenario) {    	
             String screenshotName = scenario.getName().replaceAll(" ", "_");
             String screenshotPath = Screenshot.takeScreenshot(driver, screenshotName);
@@ -52,16 +62,7 @@ public class Hooks {
     
     @After
     public void takeScreenshotOnFailure(Scenario scenario) {
-        if (scenario.isFailed()) {
-            String screenshotName = scenario.getName().replaceAll(" ", "_");
-            String screenshotPath = Screenshot.takeScreenshot(driver, screenshotName);
-            
-            byte[] screenshotBytes = Screenshot.getScreenshotAsBytes(screenshotPath);
-            
-            if (screenshotBytes != null) {
-                scenario.attach(screenshotBytes, "image/png", screenshotName);
-            }
-        }
+        
     }
     
     public static WebDriver getDriver() {

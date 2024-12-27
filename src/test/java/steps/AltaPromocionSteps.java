@@ -104,7 +104,7 @@ public class AltaPromocionSteps {
 			dropdown.findElement(By.xpath("//option[. = 'FINANCIACION ADQUIRENTE']")).click();
 		}
 		driver.findElement(By.name("TasaPromo")).sendKeys("0");		
-		driver.findElement(By.name("HoraDesde")).sendKeys("08:00");
+		driver.findElement(By.name("HoraDesde")).sendKeys("09:00");
 		driver.findElement(By.name("HoraHasta")).sendKeys("23:59");
 		{
 			WebElement dropdown = driver.findElement(By.name("ModoEntrada"));
