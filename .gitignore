@@ -1,6 +1,6 @@
 target/
-test-output
-allure-results
+test-output/
+allure-results/
 pom.xml.tag
 pom.xml.releaseBackup
 pom.xml.versionsBackup
